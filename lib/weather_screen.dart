@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:weather_app/additional_info_item.dart';
 import 'package:weather_app/hourly_forecast_item.dart';
 
 class WeatherScreen extends StatelessWidget {
@@ -48,7 +49,7 @@ class WeatherScreen extends StatelessWidget {
                       child: Column(
                         children: [
                           Text(
-                            '300°F',
+                            '300K',
                             style: TextStyle(
                               fontSize: 32,
                               fontWeight: FontWeight.bold,
@@ -80,7 +81,7 @@ class WeatherScreen extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 8),
             const SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
@@ -115,8 +116,33 @@ class WeatherScreen extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             // additional info section
-            const Placeholder(
-              fallbackHeight: 150,
+            const Text(
+              'Additional Information',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 8),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                AdditionalInfoItem(
+                  icon: Icons.water_drop,
+                  label: 'Humidity',
+                  value: '91',
+                ),
+                AdditionalInfoItem(
+                  icon: Icons.air,
+                  label: 'Wind Speed',
+                  value: '7.5',
+                ),
+                AdditionalInfoItem(
+                  icon: Icons.beach_access,
+                  label: 'Pressure',
+                  value: '1000',
+                ),
+              ],
             ),
           ],
         ),
