@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:weather_app/hourly_forecast_item.dart';
 
 class WeatherScreen extends StatelessWidget {
   const WeatherScreen({super.key});
@@ -25,6 +26,7 @@ class WeatherScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // main card
             SizedBox(
@@ -71,8 +73,45 @@ class WeatherScreen extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             // weather forecast section
-            const Placeholder(
-              fallbackHeight: 150,
+            const Text(
+              'Weather Forecast',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 16),
+            const SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  HourlyForecastItem(
+                    time: '00:00',
+                    icon: Icons.cloud,
+                    temperature: '301.22',
+                  ),
+                  HourlyForecastItem(
+                    time: '03:00',
+                    icon: Icons.sunny,
+                    temperature: '300.12',
+                  ),
+                  HourlyForecastItem(
+                    time: '06:00',
+                    icon: Icons.cloud,
+                    temperature: '302.02',
+                  ),
+                  HourlyForecastItem(
+                    time: '09:00',
+                    icon: Icons.sunny,
+                    temperature: '300.22',
+                  ),
+                  HourlyForecastItem(
+                    time: '12:00',
+                    icon: Icons.cloud,
+                    temperature: '304.32',
+                  ),
+                ],
+              ),
             ),
             const SizedBox(height: 20),
             // additional info section
